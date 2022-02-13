@@ -1,15 +1,13 @@
-import java.util.Date;
-
-public class Song {
+public class Song implements Comparable<Song>{
     private String name;
     private String identifier;
-    private Date date;
-    private float duration;
+    private String date;
+    private int duration;
     private String genre;
     private String cover;
     private String description;
 
-    public Song(String name, String identifier, Date date, float duration, String genre, String cover, String description) {
+    public Song(String name, String identifier, String date, int duration, String genre, String cover, String description) {
         this.name = name;
         this.identifier = identifier;
         this.date = date;
@@ -17,6 +15,10 @@ public class Song {
         this.genre = genre;
         this.cover = cover;
         this.description = description;
+    }
+
+    public Song (){
+
     }
 
     public String getName() {
@@ -35,19 +37,19 @@ public class Song {
         this.identifier = identifier;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public float getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(float duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 
@@ -73,6 +75,24 @@ public class Song {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Song{" +
+                "name='" + name + '\'' +
+                ", identifier='" + identifier + '\'' +
+                ", date='" + date + '\'' +
+                ", duration=" + duration +
+                ", genre='" + genre + '\'' +
+                ", cover='" + cover + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Song o) {
+        return date.compareTo(o.getDate());
     }
 
 }
