@@ -36,6 +36,19 @@ public class Library {
         }
     }
 
+    public List<Song> orderByDuration(){
+        List<Song> newlist = allSongs;
+        newlist.sort(Comparator.comparing(song -> song.getDuration()));
+        return newlist;
+    }
+
+    public List<Song> orderByDate(){
+
+        List<Song> newlist=allSongs;
+        newlist.sort(Comparator.comparing(song ->song.getDate()));
+        return newlist;
+    }
+
     public List getSearchGen() {
         return searchGen;
     }
@@ -50,5 +63,8 @@ public class Library {
                 "allSongs=" + allSongs +
                 '}';
     }
+
+
+
 
 }
